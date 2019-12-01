@@ -3,11 +3,11 @@
     .side-header
       .side-header__box
         .side-header__box__user-name
-          Takeshi
+          = current_user.name
         .side-header__box__menu
           =link_to "#", class: "side-header__box__menu__new-group" do
             = icon('fas', 'edit')
-          =link_to "#", class: "side-header__box__menu__new-group" do
+          =link_to edit_user_path(current_user), class: "side-header__box__menu__new-group" do
             = icon('fas', 'cog')
     .groups
       .group
