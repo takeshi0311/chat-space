@@ -30,11 +30,11 @@ Things you may want to cover:
 |password|string|null: false|
 |name|string|null: false|
 ### Association
-- has_many :tweets
-- has_many :groups,  through:  :user_groups
-- has_many :user_groups
+- has_many :messages
+- has_many :groups,  through:  :group_users
+- has_many :group_users
 
-## tweetsテーブル
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false　if:image = null|
@@ -51,11 +51,11 @@ Things you may want to cover:
 |name|string|null: false|
 |name|index|unique: true|
 ### Association
-- has_many :tweets
-- has_many  :users,  through:  :user_groups
-- has_many  :user_groups
+- has_many  :messages
+- has_many  :users,  through:  :group_users
+- has_many  :group_users
 
-## user_groupsテーブル
+## group_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|foreign_key: true|
