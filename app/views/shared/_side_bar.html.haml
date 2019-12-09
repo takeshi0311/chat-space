@@ -15,29 +15,21 @@
           .group__name
             = group.name
           .group__message
-            メッセージはまだありません。
-.chat-main
-  .main-header
-    .main-header__left-box
-      .main-header__left-box__current-group
-        Takeshi
-      .main-header__left-box__current-list
-        Member
-    =link_to edit_group_path(current_user), class: "main-header__edit-btn"do
-      Edit
-  .main-message
-    .main-message__left-box
-      .main-message__left-box__name
-        Takeshi
-      .main-message__left-box__date
-        2019/10/08/19:14:39
-      .main-message__left-box__message
-        This is the first message
-  .form
-    = form_tag("#") do
-      .input-box
-        %input{type: "text", placeholder:"type a message",class:"input-box__text"}
-        %label{class:"input-box__image"}
-          = icon('fas', 'image')
-          %input{type: "file", class:"input-box__image__file", name:"message[image]"}
-        %input{type:"submit", value:"send", class: "submit-btn"}
+            = group.show_last_message
+
+  -# .form
+  -#   = form_for [@group, @message] do |f|
+  -#     .input-box
+  -#       = f.text_field :text, class: 'input-box__text', placeholder: 'type a message'
+  -#       = f.label :image, class: 'input-box__image' do
+  -#         = icon('fas', 'image', class: 'icon')
+  -#         = f.file_field :image, class: 'input-box__image__file'
+  -#       = f.submit 'Send', class: 'submit-btn'
+    -# .form
+    -# = form_tag("#") do
+    -#   .input-box
+    -#     %input{type: "text", placeholder:"type a message",class:"input-box__text"}
+    -#     %label{class:"input-box__image"}
+    -#       = icon('fas', 'image')
+    -#       %input{type: "file", class:"input-box__image__file", name:"message[image]"}
+    -#     %input{type:"submit", value:"send", class: "submit-btn"}

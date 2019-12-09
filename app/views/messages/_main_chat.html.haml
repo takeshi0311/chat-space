@@ -1,0 +1,16 @@
+.main-header
+  .main-header__left-box
+    .main-header__left-box__current-group
+      = @group.name
+      -# message.group.name→beforeアクションで先に、@groupでfindメソッドで取得→ネストしていなかったらできるらしい
+    .main-header__left-box__current-list
+      Member:
+      - @group.group_users.each do |group_user|
+        = group_user.user.name
+        -# 上の文は中間テーブルを介した書き方
+        -# 一人のユーザーを取得したい場合 @group.group_users.user.name
+        -# 複数人のユーザーを取得したい場合　中間テーブルを一度全て展開してからユーザーのnameを取得する
+  =link_to edit_group_path(@group), class: "main-header__edit-btn"do
+    Edit
+.main-message
+  = render @messages
