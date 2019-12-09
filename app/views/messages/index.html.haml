@@ -1,3 +1,12 @@
 .wrapper
-  = render "main_chat"
-  = render "side_bar"
+  = render "shared/side_bar"
+  .chat-main
+    = render "main_chat"
+    .form
+      = form_for [@group, @message] do |f|
+        .input-box
+          = f.text_field :text, class: 'input-box__text', placeholder: 'type a message'
+          = f.label :image, class: 'input-box__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'input-box__image__file'
+          = f.submit 'Send', class: 'submit-btn'

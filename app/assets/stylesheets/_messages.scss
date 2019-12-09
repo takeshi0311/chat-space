@@ -91,6 +91,7 @@
                     .main-message {
                                   height: calc(100vh - 190px);
                                   background: #fafafa;
+                                  overflow: scroll;
                                   .main-message__left-box {
                                                             padding: 46px 40px;
                                                           .main-message__left-box__name {
